@@ -10,6 +10,11 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/shreelesha/MyMavenAppF.git'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'mvn test'  // Run unit tests
+            }
+        }
 
         stage('Build') {
             steps {
@@ -19,12 +24,6 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mvn package'  // Run unit tests
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'mvn test'  // Run unit tests
             }
         }
 
